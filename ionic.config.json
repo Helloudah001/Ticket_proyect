@@ -1,0 +1,7 @@
+{
+  "name": "Ticket_proyect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
