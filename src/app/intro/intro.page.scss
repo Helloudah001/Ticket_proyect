@@ -1,0 +1,80 @@
+/* Estilos generales */
+ion-content {
+  --background: #000000; /* Color de fondo */
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  font-family:monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Estilos comunes para todos los slides */
+swiper-slide h2 {
+  font-size: 18px; /* Tamaño de fuente común */
+  color: #ffffff; /* Color del texto común */
+  margin-bottom: 8px; /* Espaciado en la parte inferior común */
+}
+swiper-slide h1{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+swiper-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+  margin-bottom: 20px; /* Espaciado en la parte inferior de la imagen */
+  margin: 0 auto; 
+}
+
+swiper-slide p {
+  align-self: center;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Estilos específicos para cada slide */
+swiper-slide:nth-child(1) {
+  background-color: #015791; /* Color de fondo del primer slide */
+}
+
+swiper-slide:nth-child(2) {
+  background-color: #0a7706; /* Color de fondo del segundo slide */
+}
+
+swiper-slide:nth-child(3) {
+  background-color: #5f024b; /* Color de fondo del tercer slide */
+}
+
+swiper-slide:nth-child(4) {
+  background-color: #5f0303; /* Color de fondo del cuarto slide */
+}
+
+swiper-slide:nth-child(5) {
+  background-color: #006274; /* Color de fondo del quinto slide */
+}
+
+
+/* Estilos específicos para el último slide */
+
+swiper-slide:last-child img {
+  max-width: 80%; /* Ajusta el ancho de la imagen según sea necesario */
+  margin: 20px auto; /* Centra la imagen con espacio en la parte superior e inferior */
+}
+
+swiper-slide:last-child p {
+  text-align: center; /* Centra el texto en el último slide */
+}
