@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center ion-text-capitalize">Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar>
+    <img src="../../assets/Login/Login.jpg" alt="Usuario" class="Usuario">
+  </ion-avatar>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <ion-item>
+      <ion-input label="Email" label-placement="floating" formControlName="email" placeholder="Ingresa el correo"></ion-input>
+    </ion-item>
+
+    <div>
+      <ng-container *ngFor="let validation of validation_message.email">
+        <div *ngIf="loginForm.get('email')?.hasError(validation.type) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" class="error-message">
+          <i class="fas fa-exclamation-circle error-icon"></i>
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input label="Contraseña" label-placement="floating" formControlName="password" type="password" placeholder="Ingresa la contraseña"></ion-input>
+    </ion-item>
+
+    <ng-container *ngFor="let validation of validation_message.password">
+      <div *ngIf="loginForm.get('password')?.hasError(validation.type) && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="error-message">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        {{validation.message}}
+      </div>
+    </ng-container>
+
+    <ion-button type="submit" expand="full" [disabled]="!loginForm.valid" shape="round" color="primary">Iniciar Sesión</ion-button>
+    <ion-button expand="full" color="primary"  shape="round" (click)="goToRegistro()">Registrarse</ion-button>
+  </form>
+
+  <div *ngIf="loginMensaje" class="alert-message">
+    <i class="fas fa-exclamation-circle alert-icon"></i>
+    {{loginMensaje}}
+  </div>
+</ion-content>

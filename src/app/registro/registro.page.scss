@@ -1,0 +1,74 @@
+/* styles.css o styles.scss */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Color de fondo general */
+}
+
+/* Estilos del formulario de inicio de sesión */
+ion-header {
+  background-color: #428CFF; /* Color de fondo del encabezado */
+}
+
+ion-toolbar {
+  color: #fff; /* Color de texto del encabezado */
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Estilos del avatar */
+ion-avatar {
+  margin: auto;
+  margin-bottom: 20px; /* Espaciado inferior del avatar */
+}
+
+/* Estilos de los mensajes de error */
+.error-message {
+  color: #ff0000; /* Color rojo */
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* Para centrar verticalmente el ícono y el mensaje */
+  margin-top: 5px;
+}
+
+.error-icon {
+  margin-right: 5px;
+  color: #ff0000; /* Color rojo para el ícono de error */
+}
+
+/* Estilos del mensaje de alerta */
+.alert-message {
+  background-color: #ffdddd; /* Fondo rojo claro para resaltar */
+  border: 1px solid #ff0000; /* Borde rojo oscuro para resaltar */
+  color: #ff0000; /* Color rojo oscuro para el texto */
+  padding: 10px;
+  border-radius: 5px; /* Bordes redondeados */
+  margin-top: 10px; /* Espacio adicional desde arriba */
+}
+
+/* Opcional: Estilos del ícono de advertencia antes del mensaje de error */
+.alert-icon::before {
+  content: '\26A0'; /* Código Unicode para el ícono de advertencia */
+  margin-right: 5px;
+  font-size: 1.2em; /* Tamaño del ícono de advertencia */
+}
+
+/* Estilos del botón de inicio de sesión */
+ion-button {
+  width: 100%;
+  margin-top: 10px; /* Espaciado superior del botón */
+}
+
+/* Estilos adicionales para mejorar la apariencia general */
+ion-input {
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+

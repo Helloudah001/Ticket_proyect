@@ -1,51 +1,30 @@
-<ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-  
-    <swiper-container [pagination]="true" [mousewheelControl]="true">
-      <swiper-slide>
-        <header>
-          <h1>Bienvenido a la app de Boleteria</h1>
-        </header>
-        <img src="https://i.ytimg.com/vi/Ebuu7FhX4tc/mqdefault.jpg" alt="Welcome">
-        <p>Desliza para continuar</p>
-      </swiper-slide>
-      <swiper-slide>
-        <h1>Próximos Eventos</h1>
-        <h2>Descubre emocionantes eventos y actividades</h2>
-        <img src="https://www.buenosviajes.co/wp-content/uploads/2023/08/disney-1.jpg" alt="Eventos">
-        <p>Desliza para continuar</p>
-      </swiper-slide>
-      <swiper-slide>
-        <h1>¡Oferta Especial!</h1>
-        <h2>Aprovecha nuestras promociones exclusivas.</h2>
-        <img
-          src="https://png.pngtree.com/png-vector/20210914/ourlarge/pngtree-special-offer-promotional-sign-png-image_3929182.jpg"
-          alt="Promociones">
-        <p>Desliza para continuar</p>
-      </swiper-slide>
-      <swiper-slide>
-        <h1>Descubre Nuestras Funcionalidades</h1>
-        <h2>Compra boletos fácilmente con nuestra aplicación.</h2>
-        <img
-          src="https://assets-global.website-files.com/61801f88d983e9bb5edaa4c5/656de7c2a36f33a7f5bb4519_20231130-SB-hero-AI-YouTube-1200x675.jpg"
-          alt="Funcionalidades">
-        <p>Desliza para continuar</p>
-      </swiper-slide>
-      <swiper-slide>
-        <header>
-          <h1>¡Listo para comenzar!</h1>
-        </header>
-        <img src="https://png.pngtree.com/png-clipart/20210907/ourlarge/pngtree-kitten-holding-a-sign-for-a-warm-welcome-png-image_3872682.jpg" alt="Bienvenido a la app">
-        <h2>Ahora puedes comenzar a disfrutar de eventos
-          emocionantes y comprar tus boletos favoritos.</h2>
-          <ion-button (click)="goToIntro()">Comenzar</ion-button>
-      </swiper-slide>
-      
-  
-    </swiper-container>
-  
-  </ion-content>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <swiper-container [pagination]="true" [slidesPerView]="3">
+    <swiper-slide *ngFor="let slide of eventList">
+      <img src="{{ slide.image }}">
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-list>
+    <ion-item *ngFor="let category of categoryList" (click)="selectCategory(category.id)">
+      {{ category.name }}
+    </ion-item>
+  </ion-list>
+
+  <!-- Muestra detalles de la categoría seleccionada (opcional) -->
+  <div *ngIf="selectedCategoryId">
+    <h2>Detalles de la categoría seleccionada:</h2>
+    <ion-item>
+      Categoría ID: {{ selectedCategoryId }}
+    </ion-item>
+    <!-- Agrega más detalles según la estructura de tu categoría -->
+  </div>
+</ion-content>

@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+
+
+    <ion-title class="ion-text-center ion-text-capitalize">Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar>
+    <img src="../../assets/Registro/Registro.jpg" alt="Usuario" class="Usuario">
+  </ion-avatar>
+
+  <form [formGroup]="registroForm" (ngSubmit)="registrar(registroForm.value)">
+    <ion-item>
+      <ion-input label="Email" label-placement="floating" formControlName="email"
+        placeholder="Ingresa el correo"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let validation of validation_message_r.email">
+      <div
+        *ngIf="registroForm.get('email')?.hasError(validation.type) && (registroForm.get('email')?.dirty || registroForm.get('email')?.touched)"
+        class="error-message">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        {{validation.message}}
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-input label="Contraseña" label-placement="floating" formControlName="password" type="password"
+        placeholder="Ingresa la contraseña"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let validation of validation_message_r.password">
+      <div
+        *ngIf="registroForm.get('password')?.hasError(validation.type) && (registroForm.get('password')?.dirty || registroForm.get('password')?.touched)"
+        class="error-message">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        {{validation.message}}
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-input label="Confirmar Contraseña" label-placement="floating" formControlName="confirmPassword"
+        type="password" placeholder="Confirma la contraseña"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let validation of validation_message_r.confirmPassword">
+      <div
+        *ngIf="registroForm.get('confirmPassword')?.hasError(validation.type) && (registroForm.get('confirmPassword')?.dirty || registroForm.get('confirmPassword')?.touched)"
+        class="error-message">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        {{validation.message}}
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-input label="Nombre" label-placement="floating" formControlName="nombre"
+        placeholder="Ingresa el nombre"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let validation of validation_message_r.nombre">
+      <div
+        *ngIf="registroForm.get('nombre')?.hasError(validation.type) && (registroForm.get('nombre')?.dirty || registroForm.get('nombre')?.touched)"
+        class="error-message">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        {{validation.message}}
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-input label="Apellido" label-placement="floating" formControlName="apellido"
+        placeholder="Ingresa el apellido"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let validation of validation_message_r.apellido">
+      <div
+        *ngIf="registroForm.get('apellido')?.hasError(validation.type) && (registroForm.get('apellido')?.dirty || registroForm.get('apellido')?.touched)"
+        class="error-message">
+        <i class="fas fa-exclamation-circle error-icon"></i>
+        {{validation.message}}
+      </div>
+    </div>
+
+    <ion-button type="submit" expand="full" [disabled]="!registroForm.valid" shape="round"
+      color="primary">Registrarse</ion-button>
+  </form>
+
+  <div *ngIf="registroMensaje" class="alert-message">
+    <i class="fas fa-exclamation-circle alert-icon"></i>
+    {{registroMensaje}}
+  </div>
+</ion-content>
